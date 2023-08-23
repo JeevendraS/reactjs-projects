@@ -21,6 +21,7 @@ function App() {
   return (
     <>
      <h1 >Jeevendra Singh Raghuvanshi</h1>
+     <h2>Learning react from Hitesh Chaudhary sir</h2>
     </>
   )
 }
