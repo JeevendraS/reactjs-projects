@@ -8,9 +8,9 @@ export const TodoContext = createContext({
         }
     ],
     addTodo: (todo)=>{},
-    updateTodo: (Id,todo)=>{},
-    deleteTodo: (Id)=>{},
-    toggleComplete: (Id)=>{}
+    updateTodo: (id,todo)=>{},
+    deleteTodo: (id)=>{},
+    toggleComplete: (id)=>{}
 })
 
 export const useTodo = ()=>{
