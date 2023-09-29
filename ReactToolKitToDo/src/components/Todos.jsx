@@ -7,10 +7,10 @@ function Todos() {
     const dispatch = useDispatch()
     return (
         <>
-        <div>Todos</div>
+        <div className="my-3 text-2xl bg-gray-200 rounded">Todos</div>
         {
             todos.map((todo)=>(
-                <li key={todo.id}>{todo.text} <button onClick={()=>{dispatch(removeTodo(todo.id))}}>X</button></li>
+                <li className="bg-gray-500 my-2 rounded  w-1/2 mx-auto p-1 text-xl text-white list-none" key={todo.id}>{todo.text} <button onClick={()=>{dispatch(removeTodo(todo.id))}}>X</button></li>
             ))
         }
         </>
