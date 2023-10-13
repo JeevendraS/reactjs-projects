@@ -10,8 +10,8 @@ import Login from './components/Login.jsx'
 import Signup from './components/Signup.jsx'
 import AllPosts from './pages/AllPosts.jsx'
 import AddPost from './pages/AddPost.jsx'
-import EditPost from './pages/EditPost.jsx'
-import  Post  from './components/index.js'
+import Home from  './pages/Home.jsx'
+
 
 const router = createBrowserRouter([
   {
@@ -74,7 +74,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-     <RouterProvider router={rout}/>
+     <RouterProvider router={router}/>
     </Provider>
   </React.StrictMode>,
 )
