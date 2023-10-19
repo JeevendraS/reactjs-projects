@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form'
 
 function Signup() {
     const navigate = useNavigate()
-    const [error, setError] = useState()
+    const [error, setError] = useState("")
     const dispatch = useDispatch()
     const { register, handleSubmit } = useForm()
 
@@ -22,7 +22,7 @@ function Signup() {
                 navigate("/")
             }
         } catch (error) {
-            setError("")
+            setError(error.message)
         }
     }
     return (
@@ -54,15 +54,15 @@ function Signup() {
                             {...register("name", {
                                 required: true
                             })}
-                        />
-                        <input
+                        />   
+                        <Input
                             label="Email:"
                             placeholder='Enter you email'
                             type='email'
                             {...register("email", {
                                 required: true,
                                 validate: {
-                                    matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.text(v)
+                                    matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value)
                                         || "Email address must be a valid address",
                                 }
                             })}
@@ -75,10 +75,10 @@ function Signup() {
                                 required: true,
                             })}
                         />
-                        <button
+                        <Button
                             type='submit'
                             className='w-full'
-                        >Create Submit</button>
+                        >Create Account</Button>
                     </div>
                 </form>
             </div>
