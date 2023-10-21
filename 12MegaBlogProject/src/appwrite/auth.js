@@ -15,12 +15,12 @@ export class AuthService{
 
     async createAccount({email, password, name}){
         try {
-            const userAccount = await this.account.create(ID.unique(),email,password,name)
+            const userAccount = await this.account.create(ID.unique(), email, password, name)
             if (userAccount) {
                 // call another mehtod
                 return this.login({email,password});
             }else{
-                return userAccount
+                return userAccount;
             }
         } catch (error) {
             throw error;
@@ -29,7 +29,7 @@ export class AuthService{
 
     async login({email,password}){
         try {
-            return await thid.account.createEmailSession(email,password);
+            return await thid.account.createEmailSession(email, password);
         } catch (error) {
             throw error;
         }
@@ -42,7 +42,7 @@ export class AuthService{
             console.log("Appwrite servie :: getCurrentUser :: error", error);
         }
 
-        return null
+        return null;
     }
 
     async logout(){
@@ -54,6 +54,6 @@ export class AuthService{
     }
 }
 
-const authService = new AuthService
+const authService = new AuthService()
 
 export default authService

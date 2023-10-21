@@ -5,22 +5,22 @@ import appwriteService from '../../appwrite/configure'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux/es/hooks/useSelector'
 
-function PostForm({ post }) {
+export default function PostForm({ post }) {
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
         defaultValues: {
             title: post?.title || "",
-            slug: post?.slug || "",
+            slug: post?.$id || "",
             content: post?.content || "",
             status: post?.status || 'active',
 
         },
     })
     const navigate = useNavigate()
-    const userData = useSelector(state => state.user.userData)
+    const userData = useSelector(state => state.auth.userData)
 
     const submit = async (data) => {
         if (post) {
-            data.image[0] ? appwriteService.uploadFile(data.image[0]) : null
+            const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
 
             if (file) {
                 appwriteService.deleteFile(post.featuredImage)
@@ -61,22 +61,18 @@ function PostForm({ post }) {
 
             return ''
 
-
-
     }, [])
 
     React.useEffect(()=>{
         const subscription = watch((value, {name})=>{
             if(name==='title'){
-                setValue('value', slugTransform(value.title,{
+                setValue('value', slugTransform(value.title),{
                     shouldValidate: true
-                }))
+                })
             }
         })
 
-        return ()=>{
-            subscription.unsubscribe()
-        }
+        return ()=> subscription.unsubscribe()
     },[watch, slugTransform, setValue])
 
     return (
@@ -89,7 +85,7 @@ function PostForm({ post }) {
                 {...register("title", { required: true})}
                 />
                 <Input
-                label="Slug: "
+                label="Slug : "
                 placeholder="Slug"
                 className="mb-4"
                 {...register("slug",{required:
@@ -133,12 +129,12 @@ function PostForm({ post }) {
                     className='mb-4'
                     {...register("status", { required: true})}
                 />
-                <button type='submit' bgColor={post? "bg-green-500" : undefined} className='w-full'>
+                <Button type='submit' bgColor={post? "bg-green-500" : undefined} className='w-full'>
                     {post?"Update": "Submit"}
-                </button>
+                </Button>
             </div>
         </form>
     )
 }
 
-export default PostForm
+
