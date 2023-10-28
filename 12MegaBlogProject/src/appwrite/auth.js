@@ -8,14 +8,14 @@ export class AuthService{
     constructor(){
         this.client
             .setEndpoint(config.appwriteUrl)
-            .setProject(config.appwriteProjectId)
-        this.account = new Account(this.client)
+            .setProject(config.appwriteProjectId);
+        this.account = new Account(this.client);
 
     }
 
     async createAccount({email, password, name}){
         try {
-            const userAccount = await this.account.create(ID.unique(), email, password, name)
+            const userAccount = await this.account.create(ID.unique(), email, password, name);
             if (userAccount) {
                 // call another mehtod
                 return this.login({email,password});
@@ -29,7 +29,7 @@ export class AuthService{
 
     async login({email,password}){
         try {
-            return await thid.account.createEmailSession(email, password);
+            return await this.account.createEmailSession(email, password);
         } catch (error) {
             throw error;
         }
@@ -41,8 +41,8 @@ export class AuthService{
         } catch (error) {
             console.log("Appwrite servie :: getCurrentUser :: error", error);
         }
-
         return null;
+
     }
 
     async logout(){
@@ -56,4 +56,4 @@ export class AuthService{
 
 const authService = new AuthService()
 
-export default authService
+export default authService;

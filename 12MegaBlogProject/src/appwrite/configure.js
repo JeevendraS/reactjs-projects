@@ -10,11 +10,11 @@ export class Service{
         this.client
         .setEndpoint(config.appwriteUrl)
         .setProject(config.appwriteProjectId);
-        this.databases = new Databases(this.client);
+        this.databases = new Databases(this.client); 
         this.bucket = new Storage(this.client);
     }
 
-    async createPost({title, slug, content, featuredImage, status, userId}){
+    async createPost({title, slug, content, featuredImage, status, userid}){
         try {
             return await this.databases.createDocument(
                 config.appwriteDatabaseId,
@@ -25,7 +25,7 @@ export class Service{
                     content,
                     featuredImage,
                     status,
-                    userId,
+                    userid,
                 }
             )
         } catch (error) {
@@ -40,11 +40,10 @@ export class Service{
                 config.appwriteCollectionId,
                 slug,
                 {
-                    title,
+                   title,
                     content,
                     featuredImage,
                     status,
-
                 }
             )
         } catch (error) {
@@ -88,7 +87,6 @@ export class Service{
                 config.appwriteCollectionId,
                 queries,
                 
-
             )
         } catch (error) {
             console.log("Appwrite serive :: getPosts :: error", error);

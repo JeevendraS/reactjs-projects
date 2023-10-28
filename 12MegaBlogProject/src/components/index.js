@@ -7,7 +7,7 @@ import Input from './Input'
 import Button from './Button'
 import RTE from './RTE'
 import Select from './Select'
-import SignUp from "./Signup";
+import Signup from "./Signup";
 import Login from "./Login";
 import PostForm from "./postform/PostForm";
 import PostCard from './PostCard'
@@ -28,7 +28,7 @@ export {
     Button,
     RTE,
     Select,
-    SignUp,
+    Signup,
     Login,
     PostForm,
     PostCard, 

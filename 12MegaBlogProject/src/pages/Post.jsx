@@ -12,7 +12,7 @@ export default function Post() {
 
     const userData = useSelector((state) => state.auth.userData);
 
-    const isAuthor = post && userData ? post.userId === userData.$id : false;
+    const isAuthor = post && userData ? post.userid === userData.$id : false;
 
     useEffect(() => {
         if (slug) {
@@ -35,7 +35,7 @@ export default function Post() {
         <div className='py-8'>
             <Container>
                 <div className='w-full flex justify-center mb-4 ralative border rounded-xl p-2'>
-                    <img src={appwriteServices.getFilePreview(post.featuredImage)} alt={post.title}
+                    <img src={appwriteServices.getFilePreview(post?.featuredImage)} alt={post?.title}
                         className='rounded-xl' />
                     {
                         isAuthor && (
@@ -49,10 +49,10 @@ export default function Post() {
                     }
                 </div>
                 <div className='w-full mb-6'>
-                    <h1 className='text-2xl font-bold'>{post.title}</h1>
+                    <h1 className='text-2xl font-bold'>{post?.title}</h1>
                 </div>
                 <div className='browser-css'>
-                    {parse(post.content)}
+                    {parse(post?.content)}
                 </div>
             </Container>
         </div>

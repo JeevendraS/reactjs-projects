@@ -42,7 +42,7 @@ export default function PostForm({ post }) {
                 data.featuredImage = fileId
                 const dbPost = await appwriteService.createPost({
                     ...data,
-                    userId: userData.$id,
+                    userid: userData.$id
                 })
                 if (dbPost) {
                     navigate(`/post/${dbPost.$id}`)
@@ -56,10 +56,10 @@ export default function PostForm({ post }) {
             return value
                 .trim()
                 .toLowerCase()
-                .replace(/^[a-zA-Z\d\s]+/g, '-')
+                .replace(/[^a-zA-Z\d\s]+/g, '-')
                 .replace(/\s/g, '-')
 
-            return ''
+            return '';
 
     }, [])
 
@@ -72,7 +72,7 @@ export default function PostForm({ post }) {
             }
         })
 
-        return ()=> subscription.unsubscribe()
+        return ()=> subscription.unsubscribe();
     },[watch, slugTransform, setValue])
 
     return (
