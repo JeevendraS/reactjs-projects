@@ -8,25 +8,25 @@ import { useForm } from 'react-hook-form'
 
 
 
-function Login() {
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
-    const { register, handleSubmit } = useForm()
-    const [error, setError] = useState("")
+export default function Login() {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { register, handleSubmit } = useForm();
+    const [error, setError] = useState("");
 
     const login = async (data) => {
         setError("")
         try {
-            const session = await authService.login(data)
+            const session = await authService.login(data);
             if (session) {
-                const userData = await authService.getCurrentUser()
-                if (userData) dispatch(authLogin(userData))
-                navigate('/')
+                const userData = await authService.getCurrentUser();
+                if (userData) dispatch(authLogin({ userData }));
+                navigate('/');
             }
         } catch (error) {
             setError(error.message)
         }
-    }
+    };
     return (
         <div className='flex items-center justify-center w-full'>
             <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
@@ -62,21 +62,21 @@ function Login() {
                                 required: true,
                                 validate: {
                                     matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value)
-                                    || "Email address must be a valid address",
-                                }
+                                        || "Email address must be a valid address",
+                                },
                             })}
                         />
-                        <input 
-                        type="password"
-                        label="Password: "
-                        placeholder='Enter you password'
-                        {...register("password", {
-                            required: true
-                        })}
+                        <Input
+                            type="password"
+                            label="Password: "
+                            placeholder='Enter you password'
+                            {...register("password", {
+                                required: true,
+                            })}
                         />
                         <Button
-                        type='submit'
-                        className='w-full'
+                            type='submit'
+                            className='w-full'
                         >Sign in</Button>
                     </div>
                 </form>
@@ -86,4 +86,4 @@ function Login() {
     )
 }
 
-export default Login
+

@@ -1,10 +1,10 @@
-import React,{useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Container, PostForm } from '../components'
 import appwriteServices from '../appwrite/configure'
 import { useNavigate, useParams } from 'react-router-dom'
 
 function EditPost() {
-    const [post, setPosts] = useState()
+    const [post, setPosts] = useState(null)
     const {slug} = useParams()
     const navigate = useNavigate()
 
@@ -18,7 +18,7 @@ function EditPost() {
         }else{
             navigate('/')
         }
-    },[])
+    },[slug, navigate])
   return post? (
     <div className='py-8'>
         <Container>
