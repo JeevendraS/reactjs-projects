@@ -1,13 +1,14 @@
-*{
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-html,body{
+html,
+body {
   width: 100%;
   height: 100%;
 }
-#main{
+#main {
   width: 100vw;
   height: 100vh;
   background-color: rgb(107, 209, 240);
@@ -15,15 +16,14 @@ html,body{
   align-items: center;
   justify-content: center;
 }
-#box{
+#box {
   width: 22vw;
   height: 40vw;
   background-color: rgb(30, 61, 99);
   border-radius: 10px;
   overflow: hidden;
-
 }
-#screen{
+#screen {
   background-color: black;
   width: 100%;
   height: 23vh;
@@ -34,15 +34,15 @@ html,body{
   color: white;
   overflow: hidden;
 }
-#screen h2{
+#screen h2 {
   font-size: 40px;
   text-align: right;
 }
-#buttons{
+#buttons {
   display: flex;
   flex-wrap: wrap;
 }
-button{
+button {
   width: 4.6rem;
   height: 2.5rem;
   border-radius: 5px;
@@ -53,17 +53,16 @@ button{
   font-size: 30px;
   font-weight: 600;
   margin: 0.6rem;
-
 }
-.orange{
+.orange {
   background-color: orange;
 }
-.red{
+.red {
   background-color: red;
 }
-.green{
+.green {
   background-color: green;
 }
-.yellow{
+.yellow {
   background-color: rgb(131, 131, 75);
 }
