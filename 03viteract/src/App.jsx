@@ -4,7 +4,7 @@ import Card from './App2.jsx'
 
 function App() {
   let someObj = {
-    name:"jeevendra",
+    name:"jeevendra singh",
     age:23
   }
 
