@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <h1 className='bg-green-500 p-2 m-3 text-white rounded-full'>hello world</h1>
-      <Card username="Jeevendra" />
+      <Card username="Jeevendra singh" />
       <Card username="singh"/>
       <Card username="raghuvanshi"/>
     </>
