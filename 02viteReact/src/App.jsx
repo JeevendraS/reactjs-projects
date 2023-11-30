@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-     <h1 >Jeevendra</h1>
+     <h1 >Jeevendra Singh Raghuvanshi</h1>
     </>
   )
 }
