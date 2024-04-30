@@ -3,12 +3,13 @@ import { useState, useCallback, useEffect,useRef} from 'react'
 function App() {
   const [length, setLength] = useState(8)
   const [numberAllowed, setNumberallowed] = useState(false)
-  const [charAllowed, setcharAllowed] = useState(false)
+  const [charAllowed, setcharAllowed] = useState(false) 
   const [password, setPassword] = useState('')
 
   // useRef hook
   const passwordReff = useRef(null)
   const passwordGenerator = useCallback(() => {
+    
     let pass = ''
     let str = 'ABCDEFIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     if (numberAllowed) { str += '0123456789' }
